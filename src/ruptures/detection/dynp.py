@@ -92,7 +92,7 @@ class Dynp(BaseEstimator):
             # Find the optimal partition
             return min(sub_problems, key=lambda d: sum(d.values()))
 
-    def fit(self, signal) -> "Dynp":
+    def fit(self, signal1, signal2) -> "Dynp":
         """Create the cache associated with the signal.
 
         Dynamic programming is a recurrence; intermediate results are cached to speed up
@@ -107,8 +107,8 @@ class Dynp(BaseEstimator):
         # clear cache
         self.seg.cache_clear()
         # update some params
-        self.cost.fit(signal)
-        self.n_samples = signal.shape[0]
+        self.cost.fit(signal1, signal2)
+        self.n_samples = signal1.shape[0]
         return self
 
     def predict(self, n_bkps):
