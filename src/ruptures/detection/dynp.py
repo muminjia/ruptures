@@ -129,7 +129,7 @@ class Dynp(BaseEstimator):
         """
         # raise an exception in case of impossible segmentation configuration
         if not sanity_check(
-            n_samples=self.cost.signal.shape[0],
+            n_samples=self.cost.signal1.shape[0],
             n_bkps=n_bkps,
             jump=self.jump,
             min_size=self.min_size,
