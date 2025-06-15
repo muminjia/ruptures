@@ -85,7 +85,7 @@ class Pelt(BaseEstimator):
         del best_partition[(0, 0)]
         return best_partition
 
-    def fit(self, signal) -> "Pelt":
+    def fit(self, signal1, signal2, w) -> "Pelt":
         """Set params.
 
         Args:
@@ -95,11 +95,11 @@ class Pelt(BaseEstimator):
             self
         """
         # update params
-        self.cost.fit(signal)
-        if signal.ndim == 1:
-            (n_samples,) = signal.shape
+        self.cost.fit(signal1, signal2, w)
+        if signal1.ndim == 1:
+            (n_samples,) = signal1.shape
         else:
-            n_samples, _ = signal.shape
+            n_samples, _ = signal1.shape
         self.n_samples = n_samples
         return self
 
@@ -121,7 +121,7 @@ class Pelt(BaseEstimator):
         """
         # raise an exception in case of impossible segmentation configuration
         if not sanity_check(
-            n_samples=self.cost.signal.shape[0],
+            n_samples=self.cost.signal1.shape[0],
             n_bkps=0,
             jump=self.jump,
             min_size=self.min_size,
