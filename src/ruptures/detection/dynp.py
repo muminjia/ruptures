@@ -90,7 +90,7 @@ class Dynp(BaseEstimator):
                 sub_problems.append(tmp_partition)
 
             # Find the optimal partition
-            print(min(sub_problems, key=lambda d: sum(d.values())))
+            
             return min(sub_problems, key=lambda d: sum(d.values()))
 
     def fit(self, signal1, signal2, w) -> "Dynp":
