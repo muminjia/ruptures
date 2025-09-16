@@ -14,8 +14,8 @@ class Pelt(BaseEstimator):
     For a given model and penalty level, computes the segmentation which
     minimizes the constrained sum of approximation errors.
     """
-
-    def __init__(self, model="l2", custom_cost=None, min_size=2, jump=5, params=None):
+    # jump = 5 (original)
+    def __init__(self, model="l2", custom_cost=None, min_size=2, jump=2, params=None):
         """Initialize a Pelt instance.
 
         Args:
