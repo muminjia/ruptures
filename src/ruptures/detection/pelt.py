@@ -16,7 +16,7 @@ class Pelt(BaseEstimator):
     """
     # jump = 5 (original)
     def __init__(self, model="l2", custom_cost=None, min_size=2, jump=2, params=None):
-        print('min_size:', min_size)
+    
         """Initialize a Pelt instance.
 
         Args:
