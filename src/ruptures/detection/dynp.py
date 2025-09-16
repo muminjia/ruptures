@@ -135,7 +135,8 @@ class Dynp(BaseEstimator):
             jump=self.jump,
             min_size=self.min_size,
         ):
-            raise BadSegmentationParameters
+            # raise BadSegmentationParameters
+            return None
         partition = self.seg(0, self.n_samples, n_bkps)
         bkps = sorted(e for s, e in partition.keys())
         return bkps

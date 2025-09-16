@@ -127,7 +127,8 @@ class Pelt(BaseEstimator):
             jump=self.jump,
             min_size=self.min_size,
         ):
-            raise BadSegmentationParameters
+            # raise BadSegmentationParameters
+            return None
 
         partition = self._seg(pen)
         bkps = sorted(e for s, e in partition.keys())
