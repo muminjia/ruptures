@@ -37,3 +37,5 @@ def sanity_check(n_samples, n_bkps, jump, min_size):
         return False
     if n_bkps * ceil(min_size / jump) * jump + min_size > n_samples:
         return False
+
+    return True
