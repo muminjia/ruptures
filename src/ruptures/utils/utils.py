@@ -33,8 +33,11 @@ def sanity_check(n_samples, n_bkps, jump, min_size):
     n_adm_bkps = n_samples // jump  # number of admissible breakpoints
 
     # Are there enough points for the given number of regimes?
-    if n_bkps > n_adm_bkps:
-        return False
-    if n_bkps * ceil(min_size / jump) * jump + min_size > n_samples:
+    # if n_bkps > n_adm_bkps:
+    #     return False
+    # if n_bkps * ceil(min_size / jump) * jump + min_size > n_samples:
+    #     return False
+
+    if (n_bkps > n_adm_bkps) and (n_bkps * ceil(min_size / jump) * jump + min_size > n_samples):
         return False
     return True
