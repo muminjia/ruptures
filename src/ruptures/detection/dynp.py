@@ -139,8 +139,7 @@ class Dynp(BaseEstimator):
             return None
         partition = self.seg(0, self.n_samples, n_bkps)
         bkps = sorted(e for s, e in partition.keys())
-        total_cost = sum(partition.values())
-        return bkps, total_cost
+        return bkps
 
     def fit_predict(self, signal, n_bkps):
         """Fit to the signal and return the optimal breakpoints.
