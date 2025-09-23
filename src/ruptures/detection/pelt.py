@@ -132,7 +132,8 @@ class Pelt(BaseEstimator):
 
         partition = self._seg(pen)
         bkps = sorted(e for s, e in partition.keys())
-        return bkps
+        total_cost = sum(partition.values())
+        return bkps, total_cost
 
     def fit_predict(self, signal, pen):
         """Fit to the signal and return the optimal breakpoints.
